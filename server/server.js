@@ -5,12 +5,18 @@ import connectionDB from "./src/config/db.js";
 import linkRoutes from "./src/routes/linkRoutes.js"
 import authRoutes from "./src/routes/authRoutes.js"
 import Link from "./src/model/Link.js";
+import cors from "cors";
 
 
 dotenv.config();
 
 const app = express();
 
+app.use(
+    cors({
+        origin: "http://localhost:5173"
+    })
+);
 app.use(express.json());
 
 app.get("/",(req,res)=>{
